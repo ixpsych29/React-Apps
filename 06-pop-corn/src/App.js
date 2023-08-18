@@ -62,15 +62,26 @@ export default function App() {
       </NavBar>
 
       <Main>
-        <Box>
-          <MovieList movies={movies} />
-        </Box>
+        {/* <----------There's anotherway called explicit prop----------> */}
+        <Box element={<MovieList movies={movies} />} />
+        <Box
+          element={
+            <>
+              <WatchedSummary watched={watched} />
+              <WatchedMoviesList watched={watched} />
+            </>
+          }
+        />
 
-        {/* <------------Just reuse the Box Component Instead of WatchedBox-------------> */}
-        <Box>
+        {/* <Box>
+          <MovieList movies={movies} />
+        </Box> */}
+
+        {/* <------------Just reuse the Box Component Instead of WatchedBox -------------> */}
+        {/* <Box>
           <WatchedSummary watched={watched} />
           <WatchedMoviesList watched={watched} />
-        </Box>
+        </Box> */}
       </Main>
     </>
   );
@@ -123,14 +134,14 @@ function Main({ children }) {
 
 //<------------Reusable Box------------->
 
-function Box({ children }) {
+function Box({ element }) {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="box">
       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
         {isOpen ? "–" : "+"}
       </button>
-      {isOpen && children}
+      {isOpen && element}
     </div>
   );
 }
