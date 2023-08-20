@@ -15,7 +15,6 @@ const textStyle = {
   margin: "10px",
 };
 
-// for using default value in props destructuring we use this: maxRating=5 is default value for this
 export default function StarRating({ maxRating = 5 }) {
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
@@ -85,15 +84,3 @@ function Star({ onRate, full, onHoverIn, onHoverOut }) {
     </span>
   );
 }
-
-/*
-FULL STAR
-
-
-
-
-EMPTY STAR
-
-
-
-*/
