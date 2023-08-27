@@ -32,6 +32,7 @@ function Tabbed({ content }) {
   return (
     <div>
       <div className="tabs">
+        {/* these are instances of Tab component */}
         <Tab num={0} activeTab={activeTab} onClick={setActiveTab} />
         <Tab num={1} activeTab={activeTab} onClick={setActiveTab} />
         <Tab num={2} activeTab={activeTab} onClick={setActiveTab} />
